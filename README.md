@@ -9,7 +9,7 @@
 Extremely high performance Monero (XMR) Stratum protocol proxy, can easily handle over 100K connections on cheap $5 (1024 MB) virtual machine. Reduce number of pool connections up to 256 times, 100K workers become just 391 worker on pool side. Written on C++/libuv same as [XMRig](https://github.com/xmrig/xmrig) miner.
 
 ## Compatibility
-:warning: :warning: :warning: **Nicehash support must be enabled on miner side, it mandatory.** :warning: :warning: :warning:
+:warning: :warning: :warning: **Nicehash support must be enabled on miner side, it is mandatory.** :warning: :warning: :warning:
 
 * Compatible with any Monero, Electroneum, Sumokoin and AEON pools, except **nicehash.com**.
 * Any miner with nicehash support, `--nicehash` option for [XMRig](https://github.com/xmrig/xmrig), `"nicehash_nonce": true,` for xmr-stak-cpu.
@@ -98,7 +98,7 @@ Misc:
 
 ## Donations
 
-Default donation fee is 2% but can be reduced to 1% or disabled via `donate-level` option. Donation fee applies only if you use more than 256 miners.
+Default donation fee is 2%, but can be reduced to 1% or disabled via `donate-level` option. Donation fee applies only if you use more than 256 miners.
 
 * XMR: `48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD`
 
