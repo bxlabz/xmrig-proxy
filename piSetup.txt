@@ -1,0 +1,18 @@
+git clone https://github.com/xmrig/xmrig-proxy.git
+cd xmrig-proxy
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+
+For Miners/Nodes
+sudo ./xmrig -o YOUR_RASPBERRY_PI_IP:PORT -u YOUR_WALLET_ADDRESS -p rig-id:DEVICE_NAME
+
+ex.
+sudo ./xmrig -o 192.168.1.9:3333 -u 4B4RSqqyoMQBNSnfTkWPFVTMVHzBGoY5WRn7BobfY1Myid5p6HaszDs7nyGVVNHGRTMh6HmFwxZMYR5Hc83frXULS1UfChC -p rig-id:X
+
+To run xmrig-proxy use the following start line from the build folder
+bx@pihole:~/Crypto/xmrig-proxy/build $ ls
+1.json   c2.json       cert.pem        CMakeFiles           config.json  xmrig-proxy
+c1.json  cert_key.pem  CMakeCache.txt  cmake_install.cmake  Makefile
+
+./xmrig-proxy --config=/home/bx/Crypto/xmrig-proxy/build/config.json
