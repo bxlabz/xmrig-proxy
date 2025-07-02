@@ -1,0 +1,59 @@
+Step-by-Step: Run xmrig-proxy at Startup
+Assuming you built xmrig-proxy in:
+/home/bx/Crypto/xmrig-proxy/build/
+
+And your config file is:
+
+/home/bx/Crypto/xmrig-proxy/build/config.json
+
+1. Create a systemd Service File
+Run:
+sudo nano /etc/systemd/system/xmrig-proxy.service
+
+Paste the following content:
+
+'''
+[Unit]
+Description=XMRig Proxy Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/bx/Crypto/xmrig-proxy/build/xmrig-proxy --config=/home/bx/Crypto/xmrig-proxy/build/config.json
+WorkingDirectory=/home/bx/Crypto/xmrig-proxy/build
+Restart=on-failure
+RestartSec=5
+User=bx
+
+[Install]
+WantedBy=multi-user.target
+'''
+🔁 Change the paths or username (bx) if different
+
+2. Reload systemd and Enable the Service
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable xmrig-proxy.service
+
+This sets the service to run at boot.
+
+3. Start the Service Now
+sudo systemctl start xmrig-proxy.service
+
+4. Check the Status
+systemctl status xmrig-proxy.service
+
+You should see something like:
+● xmrig-proxy.service - XMRig Proxy Server
+   Loaded: loaded (/etc/systemd/system/xmrig-proxy.service; enabled)
+   Active: active (running)
+5. View Logs
+
+journalctl -u xmrig-proxy.service -f
+This will live-tail the output.
+
+🧪 Optional: Reboot to Test
+sudo reboot
+After the system boots, run:
+
+systemctl status xmrig-proxy.service
